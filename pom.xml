@@ -20,7 +20,7 @@
         <artifactId>junit-jupiter</artifactId>
         <version>5.7.0</version>
         <scope>test</scope>
-    </dependency>
+        </dependency>
     </dependencies>
 
 
@@ -33,7 +33,7 @@
             <configuration>
                 <failIfNoTests>true</failIfNoTests>
             </configuration>
-        </plugin>
+            </plugin>
 
             <plugin>
                 <groupId>org.jacoco</groupId>
