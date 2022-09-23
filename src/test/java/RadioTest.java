@@ -1,7 +1,7 @@
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-
 import ru.netology.Radio;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RadioTest {
 
@@ -18,16 +18,16 @@ public class RadioTest {
         assertEquals(expented, actual);
     }
 
-//   @Test // за пределом станций
-//   public void testStation15() {
-//       Radio radio = new Radio( 20);
-//       radio.setCurrentStation(15);
+  @Test // за пределом станций
+  public void testStation15() {
+      Radio radio = new Radio( 20);
+      radio.setCurrentStation(15);
 
-//       radio.next();
+      radio.next();
 
-//       int actual = radio.getCurrentStation();
-//       int expented = 15;
+      int actual = radio.getCurrentStation();
+      int expented = 16;
 
-//       assertEquals(expented, actual);
-//   }
+      assertEquals(expented, actual);
+  }
 }
