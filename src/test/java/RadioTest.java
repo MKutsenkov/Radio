@@ -18,7 +18,7 @@ public class RadioTest {
 
         assertEquals(expented, actual);
     }
-
+//jhh
     @Test  //   по возрастанию более 9
     public void testStationPrev0() {
         Radio radio = new Radio();
