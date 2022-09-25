@@ -5,13 +5,19 @@ package ru.netology;
 public class Radio {
 
     private int currentStation;
-    private int currentVolume;
+
     private int stationsCount;
+
+    private int currentVolume;
+
+    private int VolumeCount;
 
     // каналы
     public Radio() {
         this.stationsCount = 10;
     }
+
+    
 
     public Radio(int stationCount) {
         this.stationsCount = stationCount;
@@ -46,6 +52,10 @@ public class Radio {
         this.currentStation = currentStation;
     }
     // Звук
+
+
+    
+    
     public int getCurrentVolume () {
         return currentVolume;
     }
@@ -69,5 +79,9 @@ public class Radio {
             currentVolume = currentVolume - 1;
         }
     }
-// hhhh
+
+ //  public int currentVolume() {
+ //      return 0;
+ //  }
+//hhhh
 }
