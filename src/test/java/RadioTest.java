@@ -9,12 +9,12 @@ public class RadioTest {
     @Test  //   по возрастанию более 9
     public void testStationPrev() {
         Radio radio = new Radio();
-        radio.setCurrentStation(9);
+        radio.setCurrentStation(10);
 
         radio.prev();
 
         int actual = radio.getCurrentStation();
-        int expented = 8;
+        int expented = 9;
 
         assertEquals(expented, actual);
     }
@@ -126,22 +126,22 @@ public class RadioTest {
         Radio radio = new Radio( );
         radio.setCurrentVolume(9);
 
-        radio.next();
+        radio.increaseVolume();
 
         int actual = radio.getCurrentVolume();
-        int expented = 9;
+        int expented = 10;
 
         assertEquals(expented, actual);
     }
     @Test
     public void testVolume10() {
         Radio radio = new Radio( );
-        radio.setCurrentVolume(10);
+        radio.setCurrentVolume(100);
 
-        radio.next();
+        radio.increaseVolume();
 
         int actual = radio.getCurrentVolume();
-        int expented = 10;
+        int expented = 99;
 
         assertEquals(expented, actual);
     }
@@ -151,7 +151,7 @@ public class RadioTest {
         Radio radio = new Radio( );
         radio.setCurrentVolume(11);
 
-        radio.next();
+        radio.increaseVolume();
 
         int actual = radio.getCurrentVolume();
         int expented = 0;
@@ -163,7 +163,7 @@ public class RadioTest {
         Radio radio = new Radio( );
         radio.setCurrentVolume(0);
 
-        radio.next();
+        radio.increaseVolume();
 
         int actual = radio.getCurrentVolume();
         int expented = 0;
@@ -182,129 +182,122 @@ public class RadioTest {
 
         assertEquals(expented, actual);
     }
-    //     Увеличиваем и граничим 0.1.5.9.10.11
-   @Test
-   public void testIncreaseVolume0() {
-       Radio radio = new Radio( );
-       radio.setCurrentVolume(0);
-       radio.increaseVolume();
+    //     Увеличиваем и граничим  100. 99. 50. 1. 0
 
-       radio.next();
+    @Test
+    public void testIncreaseVolume100() {
+        Radio radio = new Radio( );
+        radio.setCurrentVolume(100);
+        radio.increaseVolume();
 
-       int actual = radio.getCurrentVolume();
-       int expented = 1;
-       assertEquals(expented, actual);
-   }
+
+
+        int actual = radio.getCurrentVolume();
+        int expented =101;
+        assertEquals(expented, actual);
+    }
+    @Test
+    public void testIncreaseVolume99() {
+        Radio radio = new Radio( );
+        radio.setCurrentVolume(99);
+        radio.increaseVolume();
+
+
+
+        int actual = radio.getCurrentVolume();
+        int expented = 99;
+        assertEquals(expented, actual);
+    }
+    @Test
+    public void testIncreaseVolume50() {
+        Radio radio = new Radio( );
+        radio.setCurrentVolume(50);
+        radio.increaseVolume();
+
+
+
+        int actual = radio.getCurrentVolume();
+        int expented = 51;
+        assertEquals(expented, actual);
+    }
     @Test
     public void testIncreaseVolume1() {
         Radio radio = new Radio( );
         radio.setCurrentVolume(1);
         radio.increaseVolume();
 
-        radio.next();
+
 
         int actual = radio.getCurrentVolume();
         int expented = 2;
         assertEquals(expented, actual);
     }
     @Test
-    public void testIncreaseVolume5() {
+    public void testIncreaseVolume0() {
         Radio radio = new Radio( );
-        radio.setCurrentVolume(5);
+        radio.setCurrentVolume(0);
         radio.increaseVolume();
 
-        radio.next();
 
-        int actual = radio.getCurrentVolume();
-        int expented = 6;
-        assertEquals(expented, actual);
-    }
-    @Test
-    public void testIncreaseVolume9() {
-        Radio radio = new Radio( );
-        radio.setCurrentVolume(9);
-        radio.increaseVolume();
-
-        radio.next();
-
-        int actual = radio.getCurrentVolume();
-        int expented = 10;
-        assertEquals(expented, actual);
-    }
-    @Test
-    public void testIncreaseVolume10() {
-        Radio radio = new Radio( );
-        radio.setCurrentVolume(10);
-        radio.increaseVolume();
-
-        radio.next();
-
-        int actual = radio.getCurrentVolume();
-        int expented = 10;
-        assertEquals(expented, actual);
-    }
-    @Test
-    public void testIncreaseVolume11() {
-        Radio radio = new Radio( );
-        radio.setCurrentVolume(11);
-        radio.increaseVolume();
-
-        radio.next();
 
         int actual = radio.getCurrentVolume();
         int expented = 1;
         assertEquals(expented, actual);
     }
 
-       //Уменьшаем и граничим 10. 9. 5. 1. 0
-    @Test
-    public void testReduceVolume10() {
-        Radio radio = new Radio( );
-        radio.setCurrentVolume(10);
-        radio.reduceVolume();
+       //Уменьшаем и граничим 0. 101. . 999. 50. 1
 
-        radio.next();
 
-        int actual = radio.getCurrentVolume();
-        int expented = 9;
-        assertEquals(expented, actual);
-    }
-
-    @Test
+    @Test  //  = 0
     public void testReduceVolume00() {
         Radio radio = new Radio( );
-        radio.setCurrentVolume(-1);
+        radio.setCurrentVolume(0);
         radio.reduceVolume();
 
-        radio.next();
+
 
         int actual = radio.getCurrentVolume();
         int expented = 0;
         assertEquals(expented, actual);
     }
 
-    @Test
-    public void testReduceVolume9() {
+    @Test  // >100
+    public void testReduceVolume101() {
         Radio radio = new Radio( );
-        radio.setCurrentVolume(9);
+        radio.setCurrentVolume(101);
         radio.reduceVolume();
 
-        radio.next();
+
 
         int actual = radio.getCurrentVolume();
-        int expented = 8;
+        int expented = 99;
+        assertEquals(expented, actual);
+    }
+
+
+
+    @Test
+    public void testReduceVolume100() {
+        Radio radio = new Radio( );
+        radio.setCurrentVolume(100);
+        radio.reduceVolume();
+
+
+
+        int actual = radio.getCurrentVolume();
+        int expented = 99;
         assertEquals(expented, actual);
     }
     @Test
-    public void testReduceVolume5() {
+    public void testReduceVolume50() {
         Radio radio = new Radio( );
-        radio.setCurrentVolume(5);
+        radio.setCurrentVolume(50);
         radio.reduceVolume();
 
-        radio.next();
+
 
         int actual = radio.getCurrentVolume();
-        int expented = 4;
+        int expented = 49;
         assertEquals(expented, actual);
     }
     @Test
@@ -313,7 +306,7 @@ public class RadioTest {
         radio.setCurrentVolume(1);
         radio.reduceVolume();
 
-        radio.next();
+
 
         int actual = radio.getCurrentVolume();
         int expented = 0;
