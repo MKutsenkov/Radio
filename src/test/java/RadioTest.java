@@ -14,7 +14,7 @@ public class RadioTest {
         radio.prev();
 
         int actual = radio.getCurrentStation();
-        int expented = 9;
+        int expented = 8;
 
         assertEquals(expented, actual);
     }
@@ -65,7 +65,7 @@ public class RadioTest {
         radio.next();
 
         int actual = radio.getCurrentStation();
-        int expented = 1;
+        int expented = 0;
 
         assertEquals(expented, actual);
     }
@@ -102,7 +102,7 @@ public class RadioTest {
         radio.next();
 
         int actual = radio.getCurrentStation();
-        int expented = 1;
+        int expented = 0;
 
         assertEquals(expented, actual);
     }
@@ -149,12 +149,12 @@ public class RadioTest {
     @Test
     public void testVolume11() {
         Radio radio = new Radio( );
-        radio.setCurrentVolume(11);
+        radio.setCurrentVolume(101);
 
         radio.increaseVolume();
 
         int actual = radio.getCurrentVolume();
-        int expented = 0;
+        int expented = 99;
 
         assertEquals(expented, actual);
     }
@@ -166,7 +166,7 @@ public class RadioTest {
         radio.increaseVolume();
 
         int actual = radio.getCurrentVolume();
-        int expented = 0;
+        int expented = 1;
 
         assertEquals(expented, actual);
     }
@@ -193,7 +193,7 @@ public class RadioTest {
 
 
         int actual = radio.getCurrentVolume();
-        int expented =101;
+        int expented =99;
         assertEquals(expented, actual);
     }
     @Test
@@ -270,7 +270,7 @@ public class RadioTest {
 
 
         int actual = radio.getCurrentVolume();
-        int expented = 99;
+        int expented = 98;
         assertEquals(expented, actual);
     }
 
@@ -285,7 +285,7 @@ public class RadioTest {
 
 
         int actual = radio.getCurrentVolume();
-        int expented = 99;
+        int expented = 98;
         assertEquals(expented, actual);
     }
     @Test
